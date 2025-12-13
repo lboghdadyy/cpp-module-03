@@ -2,46 +2,46 @@
 
 FragTrap::FragTrap()
 {
-    SetName("");
-    SetHitPoints(100);
-    SetEnergyPoints(100);
-    SetAttackDamage(30);
+    this->Name = "";
+    this->HitPoint = 100;
+    this->EnergyPoints = 100;
+    AttackDamage = 30;
     std::cout << "A default constructor for FragTrap was called" << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap &obj) : ClapTrap(obj)
 {
-    SetName(obj.GetName());
-    SetHitPoints(obj.GetHitPoints());
-    SetEnergyPoints(obj.GetEnergyPoints());
-    SetAttackDamage(obj.GetAttackDamage());
-    std::cout << "A constructor was called for the object with the name " << GetName() << std::endl;
+    this->Name = "";
+    this->HitPoint = obj.HitPoint;
+    this->EnergyPoints = obj.EnergyPoints;
+    this->AttackDamage = obj.AttackDamage;
+    std::cout << "A copy constructor for FragTrap was called -> " << Name << std::endl;
 }
 
 FragTrap::FragTrap(std::string Name)
 {
-    SetName(Name);
-    SetHitPoints(100);
-    SetEnergyPoints(100);
-    SetAttackDamage(30);
-    std::cout << "A constructor for FragTrap was called for the object with the name " << GetName() << std::endl;
+    this->Name = Name;
+    this->HitPoint = 100;
+    this->EnergyPoints = 100;
+    this->AttackDamage = 30;
+    std::cout << "A constructor for FragTrap was called for the object with the name " << Name << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << "A destructor was called for a FragTrap object with the name " << GetName() << std::endl;
+    std::cout << "A destructor was called for a FragTrap object with the name " << Name << std::endl;
 }
 
 FragTrap &FragTrap::operator=(FragTrap& obj)
 {
-    SetName(obj.GetName());
-    SetHitPoints(obj.GetHitPoints());
-    SetEnergyPoints(obj.GetEnergyPoints());
-    SetAttackDamage(obj.GetAttackDamage());
+    this->Name = obj.Name;
+    this->HitPoint = obj.HitPoint;
+    this->EnergyPoints = obj.EnergyPoints;
+    this->AttackDamage = obj.AttackDamage;
     return (*this);
 }
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << GetName() << " requests a positive high five!" << std::endl;
+    std::cout << Name << " requests a positive high five!" << std::endl;
 }

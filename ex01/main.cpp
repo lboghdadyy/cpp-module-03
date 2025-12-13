@@ -9,7 +9,7 @@ int main()
 
     ScavTrap obj("Scaftrap");
     obj.guardGate();
-    obj.attack("li7wak");
+    obj.attack("le moii");
     obj.beRepaired(1);
 
     object1.attack("Oufarah");

@@ -1,5 +1,5 @@
 # include "FragTrap.hpp"
-# include "Scavtrap.hpp"
+# include "ScavTrap.hpp"
 
 int main()
 {
@@ -10,7 +10,7 @@ int main()
 
     ScavTrap obj("Scaftrap");
     obj.guardGate();
-    FragTrap frag("lmqwd");
+    FragTrap frag("ana");
     frag.highFivesGuys();
 
     object1.attack("Oufarah");

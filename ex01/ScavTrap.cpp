@@ -2,56 +2,56 @@
 
 ScavTrap::ScavTrap()
 {
-    SetName("");
-    SetHitPoints(100);
-    SetEnergyPoints(50);
-    SetAttackDamage(20);
+    Name = "";
+    HitPoint = 100;
+    EnergyPoints = 50;
+    AttackDamage = 20;
     std::cout << "A default constructor for ScavTrap was called" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap &obj) : ClapTrap(obj)
 {
-    SetName(obj.GetName());
-    SetHitPoints(obj.GetHitPoints());
-    SetEnergyPoints(obj.GetEnergyPoints());
-    SetAttackDamage(obj.GetAttackDamage());
-    std::cout << "A constructor was called for the object with the name " << GetName() << std::endl;
+    this->Name = obj.Name;
+    HitPoint = obj.HitPoint;
+    EnergyPoints = obj.EnergyPoints;  
+    AttackDamage = obj.AttackDamage;
+    std::cout << "A copy constructor for ScavTrap was called -> " << Name << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string Name)
 {
-    SetName(Name);
-    SetHitPoints(100);
-    SetEnergyPoints(50);
-    SetAttackDamage(20);
-    std::cout << "A constructor for ScavTrap was called for the object with the name " << GetName() << std::endl;
+    this->Name = Name;
+    HitPoint = 100;
+    EnergyPoints = 50;
+    AttackDamage = 20;
+    std::cout << "A constructor for ScavTrap was called ->" << this->Name << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "A destructor was called for a ScavTrap object with the name " << GetName() << std::endl;
+    std::cout << "A destructor was called for a ScavTrap object with the name " << this->Name << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap& obj)
 {
-    SetName(obj.GetName());
-    SetHitPoints(obj.GetHitPoints());
-    SetEnergyPoints(obj.GetEnergyPoints());
-    SetAttackDamage(obj.GetAttackDamage());
+    this->Name = obj.Name;
+    HitPoint = obj.HitPoint;
+    EnergyPoints = obj.EnergyPoints;  
+    AttackDamage = obj.AttackDamage;
     return (*this);
 }
 
 void    ScavTrap::attack(const std::string& target)
 {
-    if (GetEnergyPoints() <= 0)
+    if (EnergyPoints <= 0)
     {
-        std::cout << GetName() << "ScavTrap Can't attack " << target << " no energy points left." << std::endl;
+        std::cout << this->Name << "ScavTrap Can't attack " << target << " no energy points left." << std::endl;
         return ;
     }
     else
     {
-        std::cout << GetName() << " Attacked " << target << "." << std::endl;
-        SetEnergyPoints(GetEnergyPoints() - 1);
+        std::cout << this->Name << " Attacked " << target << "." << std::endl;
+        EnergyPoints--;
     }
 }
 

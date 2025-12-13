@@ -6,7 +6,7 @@ ClapTrap::ClapTrap()
     this->HitPoint = 10;
     this->EnergyPoints = 10;
     this->AttackDamage = 0;
-    std::cout << "A default constructor was called" << std::endl;
+    std::cout << "A default constructor was called for ClapTrap" << std::endl;
 
 }
 
@@ -16,49 +16,26 @@ ClapTrap::ClapTrap(std::string Name)
     this->HitPoint = 10;
     this->EnergyPoints = 10;
     this->AttackDamage = 0;
-    std::cout << "A constructor was called for the object with the name " << this->Name << std::endl;
+    std::cout << "A constructor was called for an ClapTrap object" << this->Name << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "A destructor was called for the object with the name " << this->Name << std::endl;
+    std::cout << "A destructor was called for an ClapTrap object " << this->Name << std::endl;
 }
 
-std::string ClapTrap::GetName(void)
+
+ClapTrap::ClapTrap(const ClapTrap& obj)
 {
-    return (this->Name);
+    *this = obj;
 }
 
-int ClapTrap::ClapTrap::GetHitPoints(void)
+ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 {
-    return (this->HitPoint);
-}
-
-int ClapTrap::GetEnergyPoints(void)
-{
-    return (this->EnergyPoints);
-}
-
-int ClapTrap::GetAttackDamage(void)
-{
-    return (this->AttackDamage);
-}
-
-ClapTrap::ClapTrap(ClapTrap& obj)
-{
-    this->Name = obj.GetName();
-    this->HitPoint = obj.GetHitPoints();
-    this->EnergyPoints = obj.GetEnergyPoints();
-    this->AttackDamage = obj.GetAttackDamage();
-    std::cout << "A constructor was called for the object with the name " << this->Name << std::endl;
-}
-
-ClapTrap &ClapTrap::operator=(ClapTrap &obj)
-{
-    this->Name = obj.GetName();
-    this->HitPoint = obj.GetHitPoints();
-    this->EnergyPoints = obj.GetEnergyPoints();
-    this->AttackDamage = obj.GetAttackDamage();
+    this->Name = obj.Name;
+    this->HitPoint = obj.HitPoint;
+    this->EnergyPoints = obj.EnergyPoints;
+    this->AttackDamage = obj.AttackDamage;
     return (*this);
 }
 
@@ -66,12 +43,12 @@ void    ClapTrap::attack(const std::string& target)
 {
     if (this->EnergyPoints <= 0)
     {
-        std::cout << this->Name << " Can't attack " << target << " no energy points left." << std::endl;
+        std::cout << this->Name << " Claptrap Can't attack " << target << " no energy points left." << std::endl;
         return ;
     }
     else
     {
-        std::cout << this->Name << " Attacked " << target << "." << std::endl;
+        std::cout << "A Claptrap " << this->Name << " Attacked " << target << "." << std::endl;
         this->EnergyPoints--;
     }
 }
@@ -95,24 +72,4 @@ void    ClapTrap::beRepaired(unsigned int amount)
         this->HitPoint += amount;
         this->EnergyPoints--;
     }
-}
-
-void ClapTrap::SetName(std::string name)
-{
-    this->Name = name;
-}
-
-void    ClapTrap::ClapTrap::SetHitPoints(int hitpoint)
-{
-    this->HitPoint = hitpoint;
-}
-
-void    ClapTrap::SetEnergyPoints(int Energy)
-{
-    this->EnergyPoints = Energy;
-}
-
-void    ClapTrap::SetAttackDamage(int AttackDamage)
-{
-    this->AttackDamage = AttackDamage;
 }

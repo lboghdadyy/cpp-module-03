@@ -24,41 +24,22 @@ ClapTrap::~ClapTrap()
     std::cout << "A destructor was called for the object with the name " << this->Name << std::endl;
 }
 
-std::string ClapTrap::GetName(void)
-{
-    return (this->Name);
-}
-
-int ClapTrap::ClapTrap::GetHitPoints(void)
-{
-    return (this->HitPoint);
-}
-
-int ClapTrap::GetEnergyPoints(void)
-{
-    return (this->EnergyPoints);
-}
-
-int ClapTrap::GetAttackDamage(void)
-{
-    return (this->AttackDamage);
-}
 
 ClapTrap::ClapTrap(ClapTrap& obj)
 {
-    this->Name = obj.GetName();
-    this->HitPoint = obj.GetHitPoints();
-    this->EnergyPoints = obj.GetEnergyPoints();
-    this->AttackDamage = obj.GetAttackDamage();
+    this->Name = obj.Name;
+    this->HitPoint = obj.HitPoint;
+    this->EnergyPoints = obj.EnergyPoints;
+    this->AttackDamage = obj.AttackDamage;
     std::cout << "A constructor was called for the object with the name " << this->Name << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap &obj)
 {
-    this->Name = obj.GetName();
-    this->HitPoint = obj.GetHitPoints();
-    this->EnergyPoints = obj.GetEnergyPoints();
-    this->AttackDamage = obj.GetAttackDamage();
+    this->Name = obj.Name;
+    this->HitPoint = obj.HitPoint;
+    this->EnergyPoints = obj.EnergyPoints;
+    this->AttackDamage = obj.AttackDamage;
     return (*this);
 }
 
@@ -95,24 +76,4 @@ void    ClapTrap::beRepaired(unsigned int amount)
         this->HitPoint += amount;
         this->EnergyPoints--;
     }
-}
-
-void ClapTrap::SetName(std::string name)
-{
-    this->Name = name;
-}
-
-void    ClapTrap::ClapTrap::SetHitPoints(int hitpoint)
-{
-    this->HitPoint = hitpoint;
-}
-
-void    ClapTrap::SetEnergyPoints(int Energy)
-{
-    this->EnergyPoints = Energy;
-}
-
-void    ClapTrap::SetAttackDamage(int AttackDamage)
-{
-    this->AttackDamage = AttackDamage;
 }

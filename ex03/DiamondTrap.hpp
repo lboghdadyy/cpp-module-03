@@ -4,10 +4,19 @@
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class DiamondTrap : public FragTrap, public  ScavTrap
 {
+    private :
+        std::string name;
     public:
-        void    whoAmI(void);
+        DiamondTrap();
+        DiamondTrap(const std::string Name);
+        DiamondTrap(DiamondTrap &obj);
+        ~DiamondTrap();
+        DiamondTrap& operator=(DiamondTrap &obj);
+        std::string GetName();
+        void        whoAmI(void);
+        void        attack(const std::string &target);
 };
 
 # endif

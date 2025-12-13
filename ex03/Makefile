@@ -2,7 +2,7 @@ CPP = c++ -Wall -Wextra -Werror -std=c++98
 RM=rm -rf
 SOURCES = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
-NAME = FragTrap
+NAME = DiamondTrap
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
