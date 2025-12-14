@@ -3,9 +3,7 @@
 int main()
 {
     ClapTrap object1("Baghdadi");
-    ClapTrap object2("Farah");
-    ClapTrap object3("FatMizzo");
-    ClapTrap object4(object2);
+    ClapTrap object2(object1);
 
     ScavTrap obj("Scaftrap");
     obj.guardGate();

@@ -3,22 +3,21 @@
 
 int main()
 {
-    ClapTrap object1("Baghdadi");
-    ClapTrap object2("Farah");
-    ClapTrap object3("FatMizzo");
-    ClapTrap object4(object2);
+    // ClapTrap object1("Baghdadi");
+    // ClapTrap object2("Farah");
+    // ClapTrap object3("FatMizzo");
 
     ScavTrap obj("Scaftrap");
     obj.guardGate();
-    FragTrap frag("ana");
-    frag.highFivesGuys();
+    // FragTrap frag("3mk");
+    // frag.attack("badr");
+    // frag.highFivesGuys();
 
-    object1.attack("Oufarah");
-    object1.attack("Oufarah");
-    object1.attack("Oufarah");
-    object1.attack("Oufarah");
-    object1.attack("Oufarah");
-    object1.beRepaired(20);
-    object1.attack("Oufarah");
-    object2.takeDamage(3);
+    // object1.attack("Oufarah");
+    // object1.attack("Oufarah");
+    // object1.attack("Oufarah");
+    // object1.attack("Oufarah");
+    // object1.attack("Oufarah");
+    // object1.beRepaired(20);
+    // object1.attack("Oufarah");
 }

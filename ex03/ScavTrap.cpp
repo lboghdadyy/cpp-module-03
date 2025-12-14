@@ -9,7 +9,7 @@ ScavTrap::ScavTrap()
     std::cout << "A default constructor for ScavTrap was called" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap &obj) : ClapTrap(obj)
+ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap(obj)
 {
     this->Name = obj.Name;
     HitPoint = obj.HitPoint;
@@ -32,9 +32,9 @@ ScavTrap::~ScavTrap()
     std::cout << "A destructor was called for a ScavTrap object with the name " << this->Name << std::endl;
 }
 
-ScavTrap &ScavTrap::operator=(ScavTrap& obj)
+ScavTrap &ScavTrap::operator=(const ScavTrap& obj)
 {
-    this->Name = obj.Name;
+    Name = obj.Name;
     HitPoint = obj.HitPoint;
     EnergyPoints = obj.EnergyPoints;  
     AttackDamage = obj.AttackDamage;
@@ -43,15 +43,15 @@ ScavTrap &ScavTrap::operator=(ScavTrap& obj)
 
 void    ScavTrap::attack(const std::string& target)
 {
-    if (EnergyPoints <= 0)
+    if (this->EnergyPoints == 0 || this->HitPoint == 0)
     {
-        std::cout << this->Name << "ScavTrap Can't attack " << target << " no energy points left." << std::endl;
+        std::cout << this->Name << " Can't attack " << target << " no energy points left." << std::endl;
         return ;
     }
     else
     {
-        std::cout << this->Name << " Attacked " << target << "." << std::endl;
-        EnergyPoints--;
+        std::cout << "ScavTrap " << this->Name << " attacks " << target << ", causing " << this->AttackDamage << " points of damage!\n";
+        this->EnergyPoints--;
     }
 }
 

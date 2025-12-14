@@ -26,10 +26,9 @@ DiamondTrap::DiamondTrap(DiamondTrap &obj) : ClapTrap(obj), FragTrap(obj), ScavT
     this->name = obj.GetName();
 }
 
-DiamondTrap& DiamondTrap::operator=(DiamondTrap &obj)
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap &obj)
 {
-    ClapTrap::operator=(obj);
-    this->name = obj.GetName();
+    *this = obj;
     return (*this);
 }
 
