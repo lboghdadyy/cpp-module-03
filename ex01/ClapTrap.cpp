@@ -59,6 +59,12 @@ void    ClapTrap::attack(const std::string& target)
 
 void    ClapTrap::takeDamage(unsigned int amount)
 {
+    long long i = amount;
+    if (i > 2147483647 || i < -2147483648)
+    {
+        std::cout << "invalid amount in takedamage\n";
+        return ;
+    }
     if ((signed)this->HitPoint - (signed)amount < 0)
         this->HitPoint = 0;
     else
@@ -68,6 +74,12 @@ void    ClapTrap::takeDamage(unsigned int amount)
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
+    long long i = amount;
+    if (i > 2147483647 || i < -2147483648)
+    {
+        std::cout << "invalid amount in berepaired\n";
+        return ;
+    }
     if (this->EnergyPoints <= 0 || this->HitPoint <= 0 )
     {
         std::cout << this->Name << " Can't repair himself no energy points left." << std::endl;
