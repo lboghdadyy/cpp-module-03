@@ -1,4 +1,4 @@
-CPP = c++ -Wall -Wextra -Werror -std=c++98
+CPP = c++ -Wall -Wextra -Werror -std=c++98 -Wshadow
 RM=rm -rf
 SOURCES = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJECTS = $(SOURCES:.cpp=.o)

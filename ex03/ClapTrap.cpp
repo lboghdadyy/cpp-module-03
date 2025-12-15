@@ -6,13 +6,13 @@ ClapTrap::ClapTrap()
     this->HitPoint = 10;
     this->EnergyPoints = 10;
     this->AttackDamage = 0;
-    std::cout << "A default constructor was called" << std::endl;
+    std::cout << "A default constructor for Claptrap was called" << std::endl;
 
 }
 
-ClapTrap::ClapTrap(std::string Name)
+ClapTrap::ClapTrap(std::string _name)
 {
-    this->Name = Name;
+    this->Name = _name;
     this->HitPoint = 10;
     this->EnergyPoints = 10;
     this->AttackDamage = 0;
@@ -58,26 +58,50 @@ void    ClapTrap::attack(const std::string& target)
 
 void    ClapTrap::takeDamage(unsigned int amount)
 {
-    if ((signed)this->HitPoint - (signed)amount < 0)
-        this->HitPoint = 0;
-    else
-        this->HitPoint -= amount;
-    std::cout << this->Name << " took " << amount << " damage." << std::endl;
 
-}
-
-void    ClapTrap::beRepaired(unsigned int amount)
-{
-    if (this->EnergyPoints <= 0 || this->HitPoint <= 0 )
+    if ( (long)this->HitPoint - (long)amount < 0)
+    {
+        std::cout << "invalid amount in Damage\n";
+        return ;
+    }
+    if (this->HitPoint == 0)
+    {
+        std::cout << this->Name << " Can't take himself no hit points left." << std::endl;
+        return ;
+    }
+    if (this->EnergyPoints == 0)
     {
         std::cout << this->Name << " Can't repair himself no energy points left." << std::endl;
         return ;
     }
     else
     {
-        std::cout << this->Name << " repaired himself." << std::endl;
+        this->HitPoint -= amount;
+        std::cout << this->Name << " took " << amount << " damage." << std::endl;
+    }
+}
+
+void    ClapTrap::beRepaired(unsigned int amount)
+{
+    if ( this->HitPoint + amount < amount)
+    {
+        std::cout << "invalid amount in berepaired\n";
+        return ;
+    }
+    if (this->HitPoint == 0)
+    {
+        std::cout << this->Name << " Can't repair himself no hit points left." << std::endl;
+        return ;
+    }
+    if (this->EnergyPoints == 0)
+    {
+        std::cout << this->Name << " Can't repair himself no energy points left." << std::endl;
+        return ;
+    }
+    else
+    {
+        std::cout << this->Name << " repaired his Hitpoint with " << amount << std::endl;
         this->HitPoint += amount;
         this->EnergyPoints--;
     }
 }
-

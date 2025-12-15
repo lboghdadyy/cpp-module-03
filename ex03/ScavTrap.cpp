@@ -13,14 +13,14 @@ ScavTrap::ScavTrap(const ScavTrap &obj) : ClapTrap(obj)
 {
     this->Name = obj.Name;
     HitPoint = obj.HitPoint;
-    EnergyPoints = obj.EnergyPoints;  
+    EnergyPoints = obj.EnergyPoints;
     AttackDamage = obj.AttackDamage;
     std::cout << "A copy constructor for ScavTrap was called -> " << Name << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string Name)
+ScavTrap::ScavTrap(std::string name)
 {
-    this->Name = Name;
+    this->Name = name;
     HitPoint = 100;
     EnergyPoints = 50;
     AttackDamage = 20;

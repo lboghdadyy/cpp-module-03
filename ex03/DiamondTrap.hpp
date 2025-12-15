@@ -4,13 +4,13 @@
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
-class DiamondTrap : public FragTrap, public  ScavTrap
+class DiamondTrap : public  ScavTrap, public FragTrap
 {
     private :
         std::string name;
     public:
         DiamondTrap();
-        DiamondTrap(const std::string Name);
+        DiamondTrap(const std::string nom);
         DiamondTrap(DiamondTrap &obj);
         ~DiamondTrap();
         DiamondTrap& operator=(const DiamondTrap &obj);

@@ -3,13 +3,12 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
-
+#include <limits.h>
 int main()
 {
     DiamondTrap test("nn");
-
-    DiamondTrap s(test);
-
-    s.whoAmI();
+    
+    test.beRepaired(INT_MAX);
+    
     return 0;
 }

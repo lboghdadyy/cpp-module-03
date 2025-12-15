@@ -1,26 +1,28 @@
 # include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap("_default_clap_name") ,name("_default")
+DiamondTrap::DiamondTrap()
 {
-    this->HitPoint = FragTrap::HitPoint;
+    ClapTrap::Name = "_default_clap_name";
+    this->name = "_default";
+     this->HitPoint = FragTrap::HitPoint;
     this->EnergyPoints = ScavTrap::EnergyPoints;
-    this->AttackDamage = FragTrap::AttackDamage;
+    this->AttackDamage = 30;
 }
 
-DiamondTrap::DiamondTrap(std::string Name)
+DiamondTrap::DiamondTrap(std::string nom)
 {
-    this->name = Name;
-    Name += "_clap_name";
-    ClapTrap::Name = Name;
+    this->name = nom;
+    nom += "_clap_name";
+    ClapTrap::Name = nom;
     this->HitPoint = FragTrap::HitPoint;
     this->EnergyPoints = ScavTrap::EnergyPoints;
-    this->AttackDamage = FragTrap::AttackDamage;
-    std::cout << "parametrized constructor for DiamondTrap was called\n";
+    this->AttackDamage = 30;
+    std::cout << "A parametrized constructor for DiamondTrap was called\n";
 }
 
 std::string DiamondTrap::GetName(){return (this->name);}
 
-DiamondTrap::DiamondTrap(DiamondTrap &obj) : ClapTrap(obj), FragTrap(obj), ScavTrap(obj)
+DiamondTrap::DiamondTrap(DiamondTrap &obj) : ClapTrap(obj), ScavTrap(obj), FragTrap(obj)
 {
     std::cout << "copy constructor for DiamondTrap was called\n";
     this->name = obj.GetName();
@@ -36,7 +38,7 @@ DiamondTrap::~DiamondTrap(){}
 
 void    DiamondTrap::whoAmI(void)
 {
-    std::cout << "I am " << this->name << "and my ClapTrap name is ->" << ClapTrap::Name << '\n';
+    std::cout << "I am \"" << this->name << "\" and my ClapTrap name is -> \"" << ClapTrap::Name << "\"\n";
 }
 
 void    DiamondTrap::attack(const std::string &target)
